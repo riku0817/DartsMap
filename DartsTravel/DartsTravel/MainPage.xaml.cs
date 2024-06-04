@@ -39,7 +39,7 @@ namespace DartsTravel
 
 
 
-            int todoufuken = r.Next(1,47);
+            todoufuken = r.Next(1,47);
 
             switch (todoufuken)
             {
@@ -263,12 +263,30 @@ namespace DartsTravel
 
                     if (decoderjson.Contains("\"Address\":\"\"") == true)
                     {
-                        Console.WriteLine("海です!!!!");
+                        // 海なので再抽選
                     }
                     else
                     {
                         isSearch = false;
                         MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
+
+                        string locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
+                            (string)decoderData["Feature"][0]["Property"]["AddressElement"][1]["Name"];
+
+                        string locationProperty = (string)decoderData["Feature"][0]["Property"]["AddressElement"][2]["Name"] +
+                            (string)decoderData["Feature"][0]["Property"]["AddressElement"][3]["Name"];
+
+                        var pin = new Pin()
+                        {
+                            
+                            Type = PinType.Place,
+                            Label = locationName,
+                            Address = locationProperty,
+                            Position = new Position(x,y),//東京
+                            Rotation = -33.3f,//ピンを傾けることができる
+                            Tag = "",
+                        };
+                        MyMap.Pins.Add(pin);//マップへ追加
 
                     }
                 }
