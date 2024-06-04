@@ -7,11 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace DartsTravel
 {
     public partial class MainPage : ContentPage
     {
+        static readonly HttpClient client = new HttpClient();
+        static int x_natural;
+        static int y_natural;
+        static int x_double;
+        static int y_double;
+        static int todoufuken;
+        static Random r = new Random();
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -20,312 +31,252 @@ namespace DartsTravel
         double x;
         double y;
 
-        protected override void OnAppearing()
+        
+
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            Random r = new Random();
-            int random1 = r.Next(1,47);
 
 
-            
+            int todoufuken = r.Next(1,47);
 
-            try
+            switch (todoufuken)
             {
-
-
-
-                switch (random1)
-                {
-                    case 1:
-                        x = 43.46722;
-                        y = 142.8278;
-                        
-                        break;
-
-                    case 2:
-                        x = 40.78028;
-                        y = 140.8319;
-                        
-                        break;
-
-                    case 3:
-                        x = 39.59139;
-                        y = 141.3625;
-                        
-                        break;
-
-                    case 4:
-                        x = 38.44556;
-                        y = 140.9281;
-                        
-                        break;
-
-                    case 5:
-                        x = 39.7475;
-                        y = 140.4086;
-                        
-                        break;
-
-                    case 6:
-                        x = 38.44639;
-                        y = 140.1028;
-                        
-                        break;
-
-                    case 7:
-                        x = 37.37889;
-                        y = 140.2253;
-                        
-                        break;
-
-                    case 8:
-                        x = 36.30639;
-                        y = 140.3186;
-                        
-                        break;
-
-                    case 9:
-                        x = 36.68917;
-                        y = 139.8192;
-                        
-                        break;
-
-                    case 10:
-                        x = 36.50389;
-                        y = 138.9853;
-                        
-                        break;
-
-                    case 11:
-                        x = 35.99667;
-                        y = 139.3478;
-                        
-                        break;
-
-                    case 12:
-                        x = 35.51278;
-                        y = 140.2039;
-                        
-                        break;
-
-                    case 13:
-                        x = 35.01833;
-                        y = 139.5986;
-                        
-                        break;
-
-                    case 14:
-                        x = 35.41417;
-                        y = 139.3403;
-                        
-                        break;
-
-                    case 15:
-                        x = 37.51889;
-                        y = 138.9172;
-                        
-                        break;
-
-                    case 16:
-                        x = 36.63611;
-                        y = 137.2681;
-                        
-                        break;
-
-                    case 17:
-                        x = 36.76583;
-                        y = 136.7714;
-                        
-                        break;
-
-                    case 18:
-                        x = 35.84667;
-                        y = 136.2272;
-                        
-                        break;
-
-                    case 19:
-                        x = 35.61222;
-                        y = 138.6117;
-                        
-                        break;
-
-                    case 20:
-                        x = 36.13;
-                        y = 138.0439;
-                        
-                        break;
-
-                    case 21:
-                        x = 35.7775;
-                        y = 137.055;
-                        
-                        break;
-
-                    case 22:
-                        x = 35.01694;
-                        y = 138.33;
-                        
-                        break;
-
-                    case 23:
-                        x = 35.03444;
-                        y = 137.215;
-                        
-                        break;
-
-                    case 24:
-                        x = 34.51361;
-                        y = 136.3814;
-                        
-                        break;
-
-                    case 25:
-                        x = 35.21528;
-                        y = 136.1381;
-                        
-                        break;
-
-                    case 26:
-                        x = 35.25194;
-                        y = 135.4458;
-                        
-                        break;
-
-                    case 27:
-                        x = 34.62278;
-                        y = 135.5111;
-                        
-                        break;
-
-                    case 28:
-                        x = 35.03694;
-                        y = 134.8286;
-                        
-                        break;
-
-                    case 29:
-                        x = 34.31556;
-                        y = 135.8714;
-                        
-                        break;
-
-                    case 30:
-                        x = 33.90944;
-                        y = 135.5133;
-                        
-                        break;
-
-                    case 31:
-                        x = 35.36056;
-                        y = 133.8517;
-                        
-                        break;
-
-                    case 32:
-                        x = 35.07306;
-                        y = 132.5594;
-                        
-                        break;
-
-                    case 33:
-                        x = 34.90083;
-                        y = 133.8153;
-                        
-                        break;
-
-                    case 34:
-                        x = 34.60361;
-                        y = 132.7875;
-                        
-                        break;
-
-                    case 35:
-                        x = 34.19861;
-                        y = 131.575;
-                        
-                        break;
-
-                    case 36:
-                        x = 33.91806;
-                        y = 134.2431;
-                        
-                        break;
-
-                    case 37:
-                        x = 34.24306;
-                        y = 133.9967;
-                        
-                        break;
-
-                    case 38:
-                        x = 33.62194;
-                        y = 132.8558;
-                        
-                        break;
-
-                    case 39:
-                        x = 33.42111;
-                        y = 133.3667;
-                        
-                        break;
-
-                    case 40:
-                        x = 33.5225;
-                        y = 130.6681;
-                        
-                        break;
-
-                    case 41:
-                        x = 33.28528;
-                        y = 130.1169;
-                        
-                        break;
-
-                    case 42:
-                        x = 33.2275;
-                        y = 129.6142;
-                        
-                        break;
-
-                    case 43:
-                        x = 32.615;
-                        y = 130.7564;
-                        
-                        break;
-
-                    case 44:
-                        x = 33.19917;
-                        y = 131.4342;
-                        
-                        break;
-
-                    case 45:
-                        x = 32.19083;
-                        y = 131.3006;
-                        
-                        break;
-
-                    case 46:
-                        x = 31.01278;
-                        y = 130.4242;
-                        
-                        break;
-
-                    case 47:
-                        x = 25.77111;
-                        y = 126.64;
-                        
-                        break;
-
-                }
-                MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
+                case 1://北海道 
+                    x_natural = 43;
+                    y_natural = 141;
+                    break;
+                case 2://青森 
+                    x_natural = 40;
+                    y_natural = 140;
+                    break;
+                case 3://岩手 
+                    x_natural = 39;
+                    y_natural = 141;
+                    break;
+                case 4://宮城
+                    x_natural = 38;
+                    y_natural = 140;
+                    break;
+                case 5://秋田 
+                    x_natural = 39;
+                    y_natural = 140;
+                    break;
+                case 6://山形
+                    x_natural = 38;
+                    y_natural = 140;
+                    break;
+                case 7://福島 
+                    x_natural = 37;
+                    y_natural = 140;
+                    break;
+                case 8://茨城 
+                    x_natural = 36;
+                    y_natural = 140;
+                    break;
+                case 9://栃木 
+                    x_natural = 36;
+                    y_natural = 139;
+                    break;
+                case 10://群馬 
+                    x_natural = 36;
+                    y_natural = 139;
+                    break;
+                case 11://埼玉 
+                    x_natural = 35;
+                    y_natural = 139;
+                    break;
+                case 12://千葉 
+                    x_natural = 35;
+                    y_natural = 140;
+                    break;
+                case 13://東京 
+                    x_natural = 35;
+                    y_natural = 139;
+                    break;
+                case 14://神奈川 
+                    x_natural = 35;
+                    y_natural = 139;
+                    break;
+                case 15://新潟 
+                    x_natural = 37;
+                    y_natural = 139;
+                    break;
+                case 16://富山 
+                    x_natural = 36;
+                    y_natural = 137;
+                    break;
+                case 17://石川 
+                    x_natural = 36;
+                    y_natural = 136;
+                    break;
+                case 18://福井 
+                    x_natural = 36;
+                    y_natural = 136;
+                    break;
+                case 19://山梨 
+                    x_natural = 35;
+                    y_natural = 138;
+                    break;
+                case 20://長野 
+                    x_natural = 36;
+                    y_natural = 138;
+                    break;
+                case 21://岐阜
+                    x_natural = 35;
+                    y_natural = 136;
+                    break;
+                case 22://静岡
+                    x_natural = 34;
+                    y_natural = 138;
+                    break;
+                case 23://愛知
+                    x_natural = 35;
+                    y_natural = 136;
+                    break;
+                case 24://三重
+                    x_natural = 34;
+                    y_natural = 136;
+                    break;
+                case 25://滋賀
+                    x_natural = 35;
+                    y_natural = 135;
+                    break;
+                case 26://京都
+                    x_natural = 35;
+                    y_natural = 135;
+                    break;
+                case 27://大阪
+                    x_natural = 34;
+                    y_natural = 135;
+                    break;
+                case 28://兵庫
+                    x_natural = 34;
+                    y_natural = 135;
+                    break;
+                case 29://奈良
+                    x_natural = 34;
+                    y_natural = 135;
+                    break;
+                case 30://和歌山
+                    x_natural = 34;
+                    y_natural = 135;
+                    break;
+                case 31://鳥取
+                    x_natural = 35;
+                    y_natural = 134;
+                    break;
+                case 32://島根
+                    x_natural = 35;
+                    y_natural = 134;
+                    break;
+                case 33://岡山
+                    x_natural = 34;
+                    y_natural = 133;
+                    break;
+                case 34://広島
+                    x_natural = 34;
+                    y_natural = 132;
+                    break;
+                case 35://山口
+                    x_natural = 34;
+                    y_natural = 131;
+                    break;
+                case 36://徳島
+                    x_natural = 34;
+                    y_natural = 134;
+                    break;
+                case 37://香川
+                    x_natural = 34;
+                    y_natural = 134;
+                    break;
+                case 38://愛媛
+                    x_natural = 33;
+                    y_natural = 132;
+                    break;
+                case 39://高知
+                    x_natural = 33;
+                    y_natural = 133;
+                    break;
+                case 40://福岡
+                    x_natural = 33;
+                    y_natural = 130;
+                    break;
+                case 41://佐賀
+                    x_natural = 33;
+                    y_natural = 130;
+                    break;
+                case 42://長崎
+                    x_natural = 32;
+                    y_natural = 129;
+                    break;
+                case 43://熊本
+                    x_natural = 32;
+                    y_natural = 130;
+                    break;
+                case 44://大分
+                    x_natural = 33;
+                    y_natural = 131;
+                    break;
+                case 45://宮崎
+                    x_natural = 31;
+                    y_natural = 131;
+                    break;
+                case 46://鹿児島
+                    x_natural = 31;
+                    y_natural = 130;
+                    break;
+                case 47://沖縄
+                    x_natural = 26;
+                    y_natural = 127;
+                    break;
             }
+            bool isSearch = true;
 
-            catch (Exception ex)
+
+            while (isSearch == true)
             {
-                Debug.WriteLine(ex);
+
+
+                try
+                {
+                    x_double = r.Next(000001, 999999);
+                    y_double = r.Next(000001, 999999);
+
+                    string x_string = x_natural + "." + x_double;
+                    string y_string = y_natural + "." + y_double;
+
+                    x = double.Parse(x_string);
+                    y = double.Parse(y_string);
+
+
+
+
+                    string apiUrl = $"https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?output=json&lat={x_natural}.{x_double}&lon={y_natural}.{y_double}&appid=dj00aiZpPTFXSWpmaHFZZ0YxSSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTI-";
+                    // APIからのレスポンスを取得
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+                    response.EnsureSuccessStatusCode();
+                    string decoderjson = await response.Content.ReadAsStringAsync();
+
+                    JObject decoderData = JObject.Parse(decoderjson);
+
+                    if (decoderjson.Contains("\"Address\":\"\"") == true)
+                    {
+                        Console.WriteLine("海です!!!!");
+                    }
+                    else
+                    {
+                        isSearch = false;
+                        MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
+
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
             }
 
             //try
