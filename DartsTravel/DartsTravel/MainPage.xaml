@@ -26,7 +26,7 @@
 
             <Button x:Name="ClickButton" Text="再抽選" Clicked="Button_Clicked" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="-300"/>
 
-            <Button x:Name="LabelText" Text="aaaa" Clicked="Location_Clicked"
+            <Button x:Name="LabelText" Text="" Clicked="Location_Clicked"
                    VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DeepSkyBlue" TextColor="White" FontSize="30" FontAttributes="Bold"
                    TranslationY="-200"/>
         </Grid>
