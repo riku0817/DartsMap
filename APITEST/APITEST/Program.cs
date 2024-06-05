@@ -22,7 +22,7 @@ class Program
         
 
         todoufuken = r.Next(1, 30);
-        todoufuken = 47;
+
         switch (todoufuken)
         {
             case 1://北海道 
@@ -275,7 +275,12 @@ class Program
 
                 }
 
-                
+                for (int i = 0; i < 100; i++)
+                {
+                    Console.Write("a");
+                    System.Threading.Thread.Sleep(10);
+
+                }
 
 
             }

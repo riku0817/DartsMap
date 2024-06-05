@@ -9,11 +9,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using System.Net.NetworkInformation;
+using Xamarin.Essentials;
 
 namespace DartsTravel
 {
     public partial class MainPage : ContentPage
     {
+        MyViewModel viewModel;
         static readonly HttpClient client = new HttpClient();
         static int x_natural;
         static int y_natural;
@@ -21,23 +24,27 @@ namespace DartsTravel
         static int y_double;
         static int todoufuken;
         static Random r = new Random();
+        Pin pin = new Pin();
+        string locationName;
 
 
         public MainPage()
         {
             InitializeComponent();
+            viewModel = new MyViewModel();
+            BindingContext = viewModel;
+
         }
 
         double x;
         double y;
 
+            
         
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-
 
             todoufuken = r.Next(1,47);
 
@@ -237,7 +244,7 @@ namespace DartsTravel
 
             while (isSearch == true)
             {
-
+               
 
                 try
                 {
@@ -249,7 +256,6 @@ namespace DartsTravel
 
                     x = double.Parse(x_string);
                     y = double.Parse(y_string);
-
 
 
 
@@ -269,24 +275,30 @@ namespace DartsTravel
                     {
                         isSearch = false;
                         MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
+                        
 
-                        string locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
+
+                        locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
                             (string)decoderData["Feature"][0]["Property"]["AddressElement"][1]["Name"];
 
                         string locationProperty = (string)decoderData["Feature"][0]["Property"]["AddressElement"][2]["Name"] +
                             (string)decoderData["Feature"][0]["Property"]["AddressElement"][3]["Name"];
 
-                        var pin = new Pin()
+                        pin = new Pin()
                         {
                             
                             Type = PinType.Place,
                             Label = locationName,
                             Address = locationProperty,
-                            Position = new Position(x,y),//東京
+                            Position = new Position(x,y),
                             Rotation = -33.3f,//ピンを傾けることができる
                             Tag = "",
                         };
                         MyMap.Pins.Add(pin);//マップへ追加
+
+
+                        LabelText.Text = locationName+locationProperty+"(クリックで観光地検索)";
+
 
                     }
                 }
@@ -296,16 +308,21 @@ namespace DartsTravel
                     Debug.WriteLine(ex);
                 }
             }
+        }
 
-            //try
-            //{
-            //東京へ移動させる
-            //MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
-            //}
-            // catch (Exception ex)
-            //{
-            // Debug.WriteLine(ex);
-            //}
+        static int click;
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            OnAppearing();
+            click++;
+            ClickButton.Text = "再抽選 現在"+click+"回";
+            MyMap.Pins.Remove(pin);
+        }
+
+        private void Location_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName} 観光地&mobile_link"));
         }
     }
 }

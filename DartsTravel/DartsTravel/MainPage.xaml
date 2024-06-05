@@ -19,14 +19,16 @@
             </Grid.RowDefinitions>
 
 
-            <map:Map x:Name="MyMap" HasZoomEnabled="True" MapType="Hybrid"/>
+            <map:Map x:Name="MyMap"  MapType="Hybrid" />
 
-            <Button Text="aaaa" HeightRequest="100" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center" TranslationX="100" TranslationY="100"/>
+            <Image x:Name="dartskamae" Scale="0.1" TranslationY="300"/>
 
-            <Label Text="aaa"
+
+            <Button x:Name="ClickButton" Text="再抽選" Clicked="Button_Clicked" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="-300"/>
+
+            <Button x:Name="LabelText" Text="aaaa" Clicked="Location_Clicked"
                    VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DeepSkyBlue" TextColor="White" FontSize="30" FontAttributes="Bold"
                    TranslationY="-200"/>
- 
         </Grid>
 
 
