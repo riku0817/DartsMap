@@ -10,7 +10,7 @@ namespace DartsTravel
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MenuPage();
         }
 
         protected override void OnStart()
