@@ -18,9 +18,19 @@ namespace DartsTravel
             dartskamae.Source = ImageSource.FromResource("DartsTravel.Image.dartskamae.jpg");
         }
 
-        void OnTap(object sender, EventArgs e)
+
+        bool flickbool = true;
+        private async void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
         {
-            Navigation.PushModalAsync(new MainPage());
+            dartskamae.IsEnabled = false;
+            if (flickbool == true)
+            {
+                flickbool = false;
+                Navigation.PushModalAsync(new MainPage());
+            }
+            await Task.Delay(200);
+            dartskamae.IsEnabled = true;
+            flickbool = true;
         }
     }
 }

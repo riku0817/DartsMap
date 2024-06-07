@@ -11,6 +11,7 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using System.Net.NetworkInformation;
 using Xamarin.Essentials;
+using System.Threading;
 
 namespace DartsTravel
 {
@@ -44,6 +45,8 @@ namespace DartsTravel
 
         protected override async void OnAppearing()
         {
+            
+            
             base.OnAppearing();
 
             todoufuken = r.Next(1,47);
@@ -248,6 +251,7 @@ namespace DartsTravel
 
                 try
                 {
+                    MyMap.Pins.Clear();
                     x_double = r.Next(000001, 999999);
                     y_double = r.Next(000001, 999999);
 
@@ -297,8 +301,9 @@ namespace DartsTravel
                         MyMap.Pins.Add(pin);//マップへ追加
 
 
-                        LabelText.Text = locationName+locationProperty+"(クリックで観光地検索)";
+                        LabelText.Text = locationName + "\n" + locationProperty + "\n" + "(クリックで観光地検索)";
 
+                        
 
                     }
                 }
@@ -307,6 +312,7 @@ namespace DartsTravel
                 {
                     Debug.WriteLine(ex);
                 }
+                
             }
         }
 
@@ -317,12 +323,15 @@ namespace DartsTravel
             OnAppearing();
             click++;
             ClickButton.Text = "再抽選 現在"+click+"回";
-            MyMap.Pins.Remove(pin);
+            MyMap.Pins.Clear();
         }
 
         private void Location_Clicked(object sender, EventArgs e)
         {
             Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName} 観光地&mobile_link"));
         }
+
+
+        
     }
 }

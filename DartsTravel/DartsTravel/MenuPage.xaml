@@ -6,7 +6,7 @@
         <StackLayout>
             <Image x:Name="dartskamae" HorizontalOptions="Center" HeightRequest="800">
                 <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnTap"/>
+                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
                 </Image.GestureRecognizers>
                 </Image>
         </StackLayout>
