@@ -27,6 +27,7 @@ namespace DartsTravel
         static Random r = new Random();
         Pin pin = new Pin();
         string locationName;
+        string locationProperty;
 
 
         public MainPage()
@@ -285,7 +286,7 @@ namespace DartsTravel
                         locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
                             (string)decoderData["Feature"][0]["Property"]["AddressElement"][1]["Name"];
 
-                        string locationProperty = (string)decoderData["Feature"][0]["Property"]["AddressElement"][2]["Name"] +
+                        locationProperty = (string)decoderData["Feature"][0]["Property"]["AddressElement"][2]["Name"] +
                             (string)decoderData["Feature"][0]["Property"]["AddressElement"][3]["Name"];
 
                         pin = new Pin()
@@ -328,7 +329,7 @@ namespace DartsTravel
 
         private void Location_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName} 観光地&mobile_link"));
+            Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link"));
         }
 
 
