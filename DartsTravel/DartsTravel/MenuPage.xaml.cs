@@ -15,7 +15,7 @@ namespace DartsTravel
         public MenuPage()
         {
             InitializeComponent();
-            dartskamae.Source = ImageSource.FromResource("DartsTravel.Image.dartskamae.jpg");
+            dartskamae.Source = ImageSource.FromResource("DartsTravel.Image.darts.jpg");
         }
 
 
