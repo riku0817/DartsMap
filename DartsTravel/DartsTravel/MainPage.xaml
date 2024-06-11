@@ -21,9 +21,10 @@
     
     
     <Grid>
-        <Grid>
-            <map:Map x:Name="MyMap"  MapType="Hybrid" />
-        </Grid>
+        
+            <map:Map x:Name="MyMap"  MapType="Hybrid"/>
+        
+        
 
 
         <Image x:Name="dartskamae" Scale="0.1" TranslationY="300"/>
@@ -36,7 +37,7 @@
                    TranslationY="-200"/>
 
 
-        <Picker x:Name="locationpicker" Title="都道府県を指定する" VerticalOptions="Center" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="350">
+        <Picker x:Name="locationpicker" Title="都道府県を指定する" VerticalOptions="End" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="-35">
             <Picker.Items>
                 <x:String>都道府県すべて</x:String>
                 <x:String>北海道</x:String>
@@ -92,6 +93,7 @@
 
         <Label x:Name="searchcountlabel" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Black" TextColor="White"/>
 
+        
 
 
     </Grid>

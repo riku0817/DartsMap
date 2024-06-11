@@ -30,14 +30,15 @@ namespace DartsTravel
         string locationName;
         string locationProperty;
 
-
-
         public MainPage()
         {
             InitializeComponent();
             viewModel = new MyViewModel();
             BindingContext = viewModel;
-            
+
+
+           
+
         }
 
         double x;
@@ -535,6 +536,8 @@ namespace DartsTravel
             Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link"));
         }
 
-       
+
+
+
     }
 }
