@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using System.Net.NetworkInformation;
 using Xamarin.Essentials;
 using System.Threading;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace DartsTravel
 {
@@ -30,6 +31,7 @@ namespace DartsTravel
         string locationProperty;
 
 
+
         public MainPage()
         {
             InitializeComponent();
@@ -46,17 +48,166 @@ namespace DartsTravel
 
         protected override async void OnAppearing()
         {
-            
-            
             base.OnAppearing();
 
+            string shitei = locationpicker.Items[locationpicker.SelectedIndex];
+
+
             todoufuken = r.Next(1,47);
+
+            switch (shitei)
+            {
+                case "都道府県すべて":
+                    break;
+                case "北海道":
+                    todoufuken = 1;
+                    break;
+                case "青森県":
+                    todoufuken = 2;
+                    break;
+                case "岩手県":
+                    todoufuken = 3;
+                    break;
+                case "宮城県":
+                    todoufuken = 4;
+                    break;
+                case "秋田県":
+                    todoufuken = 5;
+                    break;
+                case "山形県":
+                    todoufuken = 6;
+                    break;
+                case "福島県":
+                    todoufuken = 7;
+                    break;
+                case "茨城県":
+                    todoufuken = 8;
+                    break;
+                case "栃木県":
+                    todoufuken = 9;
+                    break;
+                case "群馬県":
+                    todoufuken = 10;
+                    break;
+                case "埼玉県":
+                    todoufuken = 11;
+                    break;
+                case "千葉県":
+                    todoufuken = 12;
+                    break;
+                case "東京都":
+                    todoufuken = 13;
+                    break;
+                case "神奈川県":
+                    todoufuken = 14;
+                    break;
+                case "新潟県":
+                    todoufuken = 15;
+                    break;
+                case "富山県":
+                    todoufuken = 16;
+                    break;
+                case "石川県":
+                    todoufuken = 17;
+                    break;
+                case "福井県":
+                    todoufuken = 18;
+                    break;
+                case "山梨県":
+                    todoufuken = 19;
+                    break;
+                case "長野県":
+                    todoufuken = 20;
+                    break;
+                case "岐阜県":
+                    todoufuken = 21;
+                    break;
+                case "静岡県":
+                    todoufuken = 22;
+                    break;
+                case "愛知県":
+                    todoufuken = 23;
+                    break;
+                case "三重県":
+                    todoufuken = 24;
+                    break;
+                case "滋賀県":
+                    todoufuken = 25;
+                    break;
+                case "京都府":
+                    todoufuken = 26;
+                    break;
+                case "大阪府":
+                    todoufuken = 27;
+                    break;
+                case "兵庫県":
+                    todoufuken = 28;
+                    break;
+                case "奈良県":
+                    todoufuken = 29;
+                    break;
+                case "和歌山県":
+                    todoufuken = 30;
+                    break;
+                case "鳥取県":
+                    todoufuken = 31;
+                    break;
+                case "島根県":
+                    todoufuken = 32;
+                    break;
+                case "岡山県":
+                    todoufuken = 33;
+                    break;
+                case "広島県":
+                    todoufuken = 34;
+                    break;
+                case "山口県":
+                    todoufuken = 35;
+                    break;
+                case "徳島県":
+                    todoufuken = 36;
+                    break;
+                case "香川県":
+                    todoufuken = 37;
+                    break;
+                case "愛媛県":
+                    todoufuken = 38;
+                    break;
+                case "高知県":
+                    todoufuken = 39;
+                    break;
+                case "福岡県":
+                    todoufuken = 40;
+                    break;
+                case "佐賀県":
+                    todoufuken = 41;
+                    break;
+                case "長崎県":
+                    todoufuken = 42;
+                    break;
+                case "熊本県":
+                    todoufuken = 43;
+                    break;
+                case "大分県":
+                    todoufuken = 44;
+                    break;
+                case "宮崎県":
+                    todoufuken = 45;
+                    break;
+                case "鹿児島県":
+                    todoufuken = 46;
+                    break;
+                case "沖縄県":
+                    todoufuken = 47;
+                    break;
+
+            }
 
             switch (todoufuken)
             {
                 case 1://北海道 
-                    x_natural = 43;
-                    y_natural = 141;
+                    x_natural = 41;
+                    y_natural = 139;
                     break;
                 case 2://青森 
                     x_natural = 40;
@@ -245,10 +396,51 @@ namespace DartsTravel
             }
             bool isSearch = true;
 
+            int searchcount = 0;
+
+
+
+            
 
             while (isSearch == true)
             {
-               
+                searchcount += 1;
+
+                // 北海道、鹿児島、沖縄の検索補助
+                if (todoufuken == 1)
+                {
+                    x_natural = r.Next(41, 45);
+                    y_natural = r.Next(139, 144);
+                }
+                else if (todoufuken == 46)
+                {
+                    int kagoshimaproperty = r.Next(1,4);
+                    switch (kagoshimaproperty)
+                    {
+                        case 1:
+                            x_natural = 31;
+                            y_natural = 130;
+                            break;
+                        case 2:
+                            x_natural= 30;
+                            y_natural= 130;
+                            break;
+                        case 3:
+                            x_natural = 29;
+                            y_natural = 129;
+                            break;
+                        case 4:
+                            x_natural = 27;
+                            y_natural = 128;
+                            break;
+                    }
+                }
+                else if (todoufuken == 47)
+                {
+                    y_natural = r.Next(127, 128);
+                }
+
+                
 
                 try
                 {
@@ -279,6 +471,17 @@ namespace DartsTravel
                     else
                     {
                         isSearch = false;
+
+                        // 都道府県指定モード処理(処理激重の可能性)
+                        if (shitei == "都道府県すべて")
+                        {
+                            //すべてなので再抽選なし
+                        }
+                        else if (shitei != (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"])
+                        {
+                            isSearch = true;
+                        }
+
                         MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
                         
 
@@ -304,8 +507,6 @@ namespace DartsTravel
 
                         LabelText.Text = locationName + "\n" + locationProperty + "\n" + "(クリックで観光地検索)";
 
-                        
-
                     }
                 }
 
@@ -313,7 +514,9 @@ namespace DartsTravel
                 {
                     Debug.WriteLine(ex);
                 }
-                
+
+                // デバッグ用検索回数表示
+                searchcountlabel.Text = "検索回数" + searchcount;
             }
         }
 
@@ -331,8 +534,5 @@ namespace DartsTravel
         {
             Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link"));
         }
-
-
-        
     }
 }

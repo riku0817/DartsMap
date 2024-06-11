@@ -40,7 +40,7 @@
                    TranslationY="-200"/>
 
 
-            <Picker x:Name="locationpicker" Title="都道府県を指定してする" VerticalOptions="Center" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="350">
+            <Picker x:Name="locationpicker" Title="都道府県を指定する" VerticalOptions="Center" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="350">
                 <Picker.Items>
                     <x:String>都道府県すべて</x:String>
                     <x:String>北海道</x:String>
@@ -93,7 +93,9 @@
                 </Picker.Items>
                 <Picker.SelectedIndex>0</Picker.SelectedIndex>
             </Picker>
-            
+
+            <Label x:Name="searchcountlabel" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Black" TextColor="White"/>
+
         </Grid>
     </StackLayout>
 

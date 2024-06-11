@@ -26,7 +26,7 @@ namespace DartsTravel
             if (flickbool == true)
             {
                 flickbool = false;
-                Navigation.PushModalAsync(new MainPage());
+                await Navigation.PushModalAsync(new MainPage());
             }
             await Task.Delay(200);
             dartskamae.IsEnabled = true;
