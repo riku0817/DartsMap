@@ -36,7 +36,7 @@
                    TranslationY="-200"/>
 
 
-        <Picker x:Name="locationpicker" Title="都道府県を指定する" VerticalOptions="Center" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="350">
+        <Picker x:Name="locationpicker" Title="都道府県を指定する" VerticalOptions="End" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="-35">
             <Picker.Items>
                 <x:String>都道府県すべて</x:String>
                 <x:String>北海道</x:String>
