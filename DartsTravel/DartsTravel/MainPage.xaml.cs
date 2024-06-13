@@ -492,8 +492,8 @@ namespace DartsTravel
                         }
                         
 
-                        MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
-                        
+                        MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
+                        await Task.Delay(300);
 
 
                         locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
@@ -517,12 +517,16 @@ namespace DartsTravel
 
                         if (shiteimode == false)
                         {
+                            
                             for (int i = 0; i < 10; i++)
                             {
                                 mapdarts.TranslationY -= 51;
                                 mapdarts.Scale = mapdarts.Scale - 0.26;
                                 await Task.Delay(30);
                             }
+                            await Task.Delay(100);
+                            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
+                           
                         }
                         
                         LabelText.Text = locationName + "\n" + locationProperty + "\n" + "(クリックで観光地検索)";
@@ -544,6 +548,8 @@ namespace DartsTravel
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
+            await Task.Delay(300);
             OnAppearing();
             click++;
             ClickButton.Text = "再抽選 現在"+click+"回";
