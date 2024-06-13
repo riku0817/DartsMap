@@ -490,9 +490,10 @@ namespace DartsTravel
                         {
                             shiteimode = false;
                         }
-                        
 
-                        MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
+                        if (shiteimode == false)
+                        {
+                            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
                         await Task.Delay(300);
 
 
@@ -515,8 +516,7 @@ namespace DartsTravel
                         //MyMap.Pins.Add(pin);//マップへ追加
 
 
-                        if (shiteimode == false)
-                        {
+                       
                             
                             for (int i = 0; i < 10; i++)
                             {
@@ -524,7 +524,7 @@ namespace DartsTravel
                                 mapdarts.Scale = mapdarts.Scale - 0.26;
                                 await Task.Delay(30);
                             }
-                            await Task.Delay(100);
+                            await Task.Delay(200);
                             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
                            
                         }
@@ -564,6 +564,10 @@ namespace DartsTravel
             Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link"));
         }
 
-       
+        private void MapAppButton_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}"));
+
+        }
     }
 }

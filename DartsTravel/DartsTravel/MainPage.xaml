@@ -93,6 +93,7 @@
 
         <Label x:Name="searchcountlabel" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Black" TextColor="White"/>
 
+        <Button x:Name="MapAppButton" Text="GoogleMapで開く" Clicked="MapAppButton_Clicked"  VerticalOptions="End" HorizontalOptions="Start" StyleClass="round-button" BackgroundColor="White" TranslationY="-145" TextColor="Black"/>
 
 
     </Grid>
