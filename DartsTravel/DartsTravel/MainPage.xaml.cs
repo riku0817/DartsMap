@@ -37,7 +37,9 @@ namespace DartsTravel
             InitializeComponent();
             viewModel = new MyViewModel();
             BindingContext = viewModel;
-            
+            mapdarts.Source = ImageSource.FromResource("DartsTravel.Image.darts.png");
+            MyMap.UiSettings.ZoomControlsEnabled = true;
+            MyMap.UiSettings.ScrollGesturesEnabled = false;
         }
 
         double x;
@@ -502,9 +504,14 @@ namespace DartsTravel
                             Rotation = -33.3f,//ピンを傾けることができる
                             Tag = "",
                         };
-                        MyMap.Pins.Add(pin);//マップへ追加
+                        //MyMap.Pins.Add(pin);//マップへ追加
 
-
+                        for (int i = 0; i < 10; i++)
+                        {
+                            mapdarts.TranslationY -= 51;
+                            mapdarts.Scale = mapdarts.Scale - 0.26;
+                            await Task.Delay(30);
+                        }
                         LabelText.Text = locationName + "\n" + locationProperty + "\n" + "(クリックで観光地検索)";
 
                     }
@@ -522,12 +529,15 @@ namespace DartsTravel
 
         static int click;
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             OnAppearing();
             click++;
             ClickButton.Text = "再抽選 現在"+click+"回";
             MyMap.Pins.Clear();
+            await Task.Delay(80);
+            mapdarts.TranslationY += 510;
+            mapdarts.Scale += 2.6;
         }
 
         private void Location_Clicked(object sender, EventArgs e)

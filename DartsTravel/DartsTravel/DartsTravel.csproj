@@ -12,13 +12,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Image\darts.jpg" />
+    <None Remove="Image\darts.png" />
     <None Remove="Image\dartskamae.jpg" />
+    <None Remove="Image\toukadarts.png" />
+    <None Remove="Image\スクリーンショット %2883%29.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Image\darts.jpg" />
+    <EmbeddedResource Include="Image\darts.png" />
     <EmbeddedResource Include="Image\dartskamae.jpg" />
+    <EmbeddedResource Include="Image\toukadarts.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,13 +22,14 @@
     
     <Grid>
         <Grid>
-            <map:Map x:Name="MyMap"  MapType="Hybrid" />
+            <map:Map x:Name="MyMap"  MapType="Hybrid"/>
         </Grid>
 
 
         <Image x:Name="dartskamae" Scale="0.1" TranslationY="300"/>
-
-
+        <Image x:Name="mapdarts"  TranslationX="0" TranslationY="500"  Scale="2.5"/>
+         
+        <!--<Label TranslationX="0" TranslationY="0"  WidthRequest="-40000" HeightRequest="10"></Label> -->
         <Button x:Name="ClickButton" Text="再抽選" Clicked="Button_Clicked" VerticalOptions="End" HorizontalOptions="Start" StyleClass="round-button" BackgroundColor="White" TranslationY="-90" TextColor="Black"/>
 
         <Button x:Name="LabelText" Text="" Clicked="Location_Clicked"

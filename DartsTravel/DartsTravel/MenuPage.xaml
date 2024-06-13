@@ -4,7 +4,7 @@
              x:Class="DartsTravel.MenuPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="dartskamae" HorizontalOptions="Center" HeightRequest="800">
+            <Image x:Name="dartskamae"  TranslationX="0" TranslationY="500"  Scale="2.5">
                 <Image.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
                 </Image.GestureRecognizers>
