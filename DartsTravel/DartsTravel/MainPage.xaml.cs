@@ -29,6 +29,7 @@ namespace DartsTravel
         Pin pin = new Pin();
         string locationName;
         string locationProperty;
+        bool shiteimode;
 
 
 
@@ -477,12 +478,19 @@ namespace DartsTravel
                         // 都道府県指定モード処理(処理激重の可能性)
                         if (shitei == "都道府県すべて")
                         {
+                            shiteimode = false;
                             //すべてなので再抽選なし
                         }
                         else if (shitei != (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"])
                         {
+                            shiteimode = true;
                             isSearch = true;
                         }
+                        else
+                        {
+                            shiteimode = false;
+                        }
+                        
 
                         MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
                         
@@ -506,12 +514,17 @@ namespace DartsTravel
                         };
                         //MyMap.Pins.Add(pin);//マップへ追加
 
-                        for (int i = 0; i < 10; i++)
+
+                        if (shiteimode == false)
                         {
-                            mapdarts.TranslationY -= 51;
-                            mapdarts.Scale = mapdarts.Scale - 0.26;
-                            await Task.Delay(30);
+                            for (int i = 0; i < 10; i++)
+                            {
+                                mapdarts.TranslationY -= 51;
+                                mapdarts.Scale = mapdarts.Scale - 0.26;
+                                await Task.Delay(30);
+                            }
                         }
+                        
                         LabelText.Text = locationName + "\n" + locationProperty + "\n" + "(クリックで観光地検索)";
 
                     }
