@@ -460,12 +460,12 @@ namespace DartsTravel
 
 
                         x = 37.109897;
-                        y = 140.1501371;
+                        y = 140.152712;
 
-               
 
-                        string apiUrl = $"https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?output=json&lat=37.109897&lon=140.1501371&appid=dj00aiZpPTFXSWpmaHFZZ0YxSSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTI-";
-                    
+
+                        string apiUrl = $"https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?output=json&lat=37.109897&lon=140.152712&appid=dj00aiZpPTFXSWpmaHFZZ0YxSSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTI-";
+              
 
                     // APIからのレスポンスを取得
                     HttpResponseMessage response = await client.GetAsync(apiUrl);
@@ -577,8 +577,8 @@ namespace DartsTravel
 
         private void MapAppButton_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query=37.109897,140.1501371"));
-         
+            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query=37.109897,140.152712"));
+
         }
     }
 }
