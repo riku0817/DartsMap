@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartsTravel.nishigou"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+                .round-button {
+                    border-radius:30;
+                }
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+
+
+
+    <Grid>
+        <Grid>
+            <map:Map x:Name="MyMap"  MapType="Hybrid"/>
+        </Grid>
+
+
+        <Image x:Name="dartskamae" Scale="0.1" TranslationY="300"/>
+        <Image x:Name="mapdarts"  TranslationX="0" TranslationY="500"  Scale="2.5"/>
+
+        <!--<Label TranslationX="0" TranslationY="0"  WidthRequest="-40000" HeightRequest="10"></Label> -->
+        <Button x:Name="ClickButton" Text="再抽選" Clicked="Button_Clicked" VerticalOptions="End" HorizontalOptions="Start" StyleClass="round-button" BackgroundColor="White" TranslationY="-90" TextColor="Black"/>
+
+        <Button x:Name="LabelText" Text="" Clicked="Location_Clicked"
+                   VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DeepSkyBlue" TextColor="White" FontSize="30" FontAttributes="Bold"
+                   TranslationY="-200"/>
+
+
+        <Picker x:Name="locationpicker" Title="都道府県を指定する" VerticalOptions="End" BackgroundColor="White" HorizontalOptions="Start" TextColor="Black" TranslationY="-35">
+            <Picker.Items>
+                <x:String>都道府県すべて</x:String>
+                <x:String>北海道</x:String>
+                <x:String>青森県</x:String>
+                <x:String>岩手県</x:String>
+                <x:String>宮城県</x:String>
+                <x:String>秋田県</x:String>
+                <x:String>山形県</x:String>
+                <x:String>福島県</x:String>
+                <x:String>茨城県</x:String>
+                <x:String>栃木県</x:String>
+                <x:String>群馬県</x:String>
+                <x:String>埼玉県</x:String>
+                <x:String>千葉県</x:String>
+                <x:String>東京都</x:String>
+                <x:String>神奈川県</x:String>
+                <x:String>新潟県</x:String>
+                <x:String>富山県</x:String>
+                <x:String>石川県</x:String>
+                <x:String>福井県</x:String>
+                <x:String>山梨県</x:String>
+                <x:String>長野県</x:String>
+                <x:String>岐阜県</x:String>
+                <x:String>静岡県</x:String>
+                <x:String>愛知県</x:String>
+                <x:String>三重県</x:String>
+                <x:String>滋賀県</x:String>
+                <x:String>京都府</x:String>
+                <x:String>大阪府</x:String>
+                <x:String>兵庫県</x:String>
+                <x:String>奈良県</x:String>
+                <x:String>和歌山県</x:String>
+                <x:String>鳥取県</x:String>
+                <x:String>島根県</x:String>
+                <x:String>岡山県</x:String>
+                <x:String>広島県</x:String>
+                <x:String>山口県</x:String>
+                <x:String>徳島県</x:String>
+                <x:String>香川県</x:String>
+                <x:String>愛媛県</x:String>
+                <x:String>高知県</x:String>
+                <x:String>福岡県</x:String>
+                <x:String>佐賀県</x:String>
+                <x:String>長崎県</x:String>
+                <x:String>熊本県</x:String>
+                <x:String>大分県</x:String>
+                <x:String>宮崎県</x:String>
+                <x:String>鹿児島県</x:String>
+                <x:String>沖縄県</x:String>
+            </Picker.Items>
+            <Picker.SelectedIndex>0</Picker.SelectedIndex>
+        </Picker>
+
+        <Label x:Name="searchcountlabel" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Black" TextColor="White"/>
+
+        <Button x:Name="MapAppButton" Text="GoogleMapで開く" Clicked="MapAppButton_Clicked"  VerticalOptions="End" HorizontalOptions="Start" StyleClass="round-button" BackgroundColor="White" TranslationY="-145" TextColor="Black"/>
+
+
+    </Grid>
+</ContentPage>
