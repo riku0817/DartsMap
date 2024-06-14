@@ -570,15 +570,13 @@ namespace DartsTravel
 
         private void Location_Clicked(object sender, EventArgs e)
         {
-
-                Device.OpenUri(new Uri($"https://www.google.co.jp/search?q=福島県西白河郡西郷村 観光地&mobile_link"));
+            Launcher.OpenAsync($"https://www.google.co.jp/search?q=福島県西白河郡西郷村 観光地&mobile_link");
 
         }
 
         private void MapAppButton_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query=37.109897,140.152712"));
-
+            Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&query=37.109897,140.152712");
         }
     }
 }
