@@ -13,6 +13,7 @@ using System.Net.NetworkInformation;
 using Xamarin.Essentials;
 using System.Threading;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace DartsTravel
 {
@@ -513,7 +514,7 @@ namespace DartsTravel
                             Rotation = -33.3f,//ピンを傾けることができる
                             Tag = "",
                         };
-                        //MyMap.Pins.Add(pin);//マップへ追加
+                        // MyMap.Pins.Add(pin);//マップへ追加
 
 
                        
@@ -561,13 +562,12 @@ namespace DartsTravel
 
         private void Location_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link"));
+            Launcher.OpenAsync($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link");
         }
 
         private void MapAppButton_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}"));
-
+            Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&map_action=pano&query={x_natural}.{x_double},{y_natural}.{y_double}&basemap=satellite");
         }
     }
 }
