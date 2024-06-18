@@ -7,6 +7,11 @@
     xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="|再抽選|"  Clicked="lottery_Clicked" />
+        <ToolbarItem Text="|GoogleMapで開く|" Clicked="Google_Clicked"/>
+    </ContentPage.ToolbarItems>
+
 
     <ContentPage.Resources>
         <StyleSheet>
@@ -15,16 +20,16 @@
                     border-radius:30;
                 }
             ]]>
+            
         </StyleSheet>
     </ContentPage.Resources>
 
     
-    
+
     <Grid>
         <Grid>
             <map:Map x:Name="MyMap"  MapType="Hybrid"/>
         </Grid>
-
 
         <Image x:Name="dartskamae" Scale="0.1" TranslationY="300"/>
         <Image x:Name="mapdarts"  TranslationX="0" TranslationY="500"  Scale="2.5"/>

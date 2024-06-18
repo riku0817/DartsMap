@@ -44,6 +44,9 @@ namespace DartsTravel
                     dartskamae.TranslationY += 400;
                     dartskamae.Scale = dartskamae.Scale + 2.6;
                 }
+                   dartskamae.TranslationY += 180;
+                   dartskamae.Scale = dartskamae.Scale + 2.6;
+                    await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
 
                 await Task.Delay(200);
                 dartskamae.IsEnabled = true;
