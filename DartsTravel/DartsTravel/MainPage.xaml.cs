@@ -550,7 +550,7 @@ namespace DartsTravel
             await Task.Delay(300);
             OnAppearing();
             click++;
-            ClickButton.Text = "再抽選 現在"+click+"回";
+            saichusen.Text = "再抽選 現在"+click+"回";
             MyMap.Pins.Clear();
             await Task.Delay(80);
             mapdarts.TranslationY += 510;
@@ -573,7 +573,7 @@ namespace DartsTravel
             await Task.Delay(300);
             OnAppearing();
             click++;
-            ClickButton.Text = "再抽選 現在" + click + "回";
+            saichusen.Text = "|" + "再抽選 現在" + click + "回" + "|";
             MyMap.Pins.Clear();
             await Task.Delay(80);
             mapdarts.TranslationY += 510;
@@ -582,7 +582,7 @@ namespace DartsTravel
 
         private void Google_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}"));
+            Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}");
         }
     }
 }

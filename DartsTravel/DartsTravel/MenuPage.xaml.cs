@@ -39,12 +39,12 @@ namespace DartsTravel
                         dartskamae.Scale = dartskamae.Scale - 0.26;
                         await Task.Delay(30);
                     }
-                    await Navigation.PushModalAsync(new nishigou());
+                    await Navigation.PushAsync(new nishigou());
                     dartskamae.TranslationX -= 100;
                     dartskamae.TranslationY += 400;
                     dartskamae.Scale = dartskamae.Scale + 2.6;
                 }
-                    await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                    await Navigation.PushAsync(new NavigationPage(new MainPage()));
                    dartskamae.TranslationY += 180;
                    dartskamae.Scale = dartskamae.Scale + 2.6;
 
@@ -63,7 +63,7 @@ namespace DartsTravel
                         dartskamae.Scale = dartskamae.Scale - 0.26;
                         await Task.Delay(30);
                     }
-                    await Navigation.PushModalAsync(new MainPage());
+                    await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
                     dartskamae.TranslationY += 180;
                     dartskamae.Scale = dartskamae.Scale + 2.6;
                 }

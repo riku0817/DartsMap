@@ -561,7 +561,7 @@ namespace DartsTravel
             await Task.Delay(300);
             OnAppearing();
             click++;
-            ClickButton.Text = "再抽選 現在" + click + "回";
+            saichusen.Text = "再抽選 現在" + click + "回";
             MyMap.Pins.Clear();
             await Task.Delay(80);
             mapdarts.TranslationY += 510;
@@ -577,6 +577,23 @@ namespace DartsTravel
         private void MapAppButton_Clicked(object sender, EventArgs e)
         {
             Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&query=37.109897,140.152712");
+        }
+        private async void lottery_Clicked(object sender, EventArgs e)
+        {
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
+            await Task.Delay(300);
+            OnAppearing();
+            click++;
+            saichusen.Text = "|"+"再抽選 現在" + click + "回"+ "|";
+            MyMap.Pins.Clear();
+            await Task.Delay(80);
+            mapdarts.TranslationY += 510;
+            mapdarts.Scale += 2.6;
+        }
+
+        private void Google_Clicked(object sender, EventArgs e)
+        {
+            Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}");
         }
     }
 }
