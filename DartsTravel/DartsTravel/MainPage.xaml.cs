@@ -46,15 +46,12 @@ namespace DartsTravel
         double x;
         double y;
 
-            
-        
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             string shitei = locationpicker.Items[locationpicker.SelectedIndex];
-
 
             todoufuken = r.Next(1,47);
 
@@ -568,6 +565,24 @@ namespace DartsTravel
         {
             Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}"));
 
+        }
+
+         private async void lottery_Clicked(object sender, EventArgs e)
+        {
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
+            await Task.Delay(300);
+            OnAppearing();
+            click++;
+            ClickButton.Text = "再抽選 現在" + click + "回";
+            MyMap.Pins.Clear();
+            await Task.Delay(80);
+            mapdarts.TranslationY += 510;
+            mapdarts.Scale += 2.6;
+        }
+
+        private void Google_Clicked(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}"));
         }
     }
 }
