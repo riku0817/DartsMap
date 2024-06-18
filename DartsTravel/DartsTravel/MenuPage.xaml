@@ -4,11 +4,16 @@
              x:Class="DartsTravel.MenuPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="dartskamae"  TranslationX="0" TranslationY="500"  Scale="2.5">
+            <Image x:Name="dartskamae"  TranslationX="0" TranslationY="400"  Scale="1.0">
                 <Image.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
                 </Image.GestureRecognizers>
                 </Image>
+            <Image x:Name="kakudarts"  TranslationX="0" TranslationY="290"  Scale="0"/>
+            <Image x:Name="otiru"  TranslationX="100" TranslationY="-200"  Scale="0"/>
+            
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

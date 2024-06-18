@@ -520,7 +520,7 @@ namespace DartsTravel
                                 Rotation = -33.3f,//ピンを傾けることができる
                                 Tag = "",
                             };
-                            MyMap.Pins.Add(pin);//マップへ追加
+                            //MyMap.Pins.Add(pin);//マップへ追加
 
 
 
