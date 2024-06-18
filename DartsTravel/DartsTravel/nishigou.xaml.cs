@@ -13,11 +13,10 @@ using System.Net.NetworkInformation;
 using Xamarin.Essentials;
 using System.Threading;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace DartsTravel
 {
-    public partial class MainPage : ContentPage
+    public partial class nishigou : ContentPage
     {
         MyViewModel viewModel;
         static readonly HttpClient client = new HttpClient();
@@ -34,7 +33,7 @@ namespace DartsTravel
 
 
 
-        public MainPage()
+        public nishigou()
         {
             InitializeComponent();
             viewModel = new MyViewModel();
@@ -47,14 +46,21 @@ namespace DartsTravel
         double x;
         double y;
 
+        bool kakuritu = true;
 
+        
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             string shitei = locationpicker.Items[locationpicker.SelectedIndex];
 
-            todoufuken = r.Next(1,47);
+            if(kakuritu == true)
+            {
+
+            }
+
+            todoufuken = r.Next(1, 47);
 
             switch (shitei)
             {
@@ -401,7 +407,7 @@ namespace DartsTravel
 
 
 
-            
+
 
             while (isSearch == true)
             {
@@ -415,7 +421,7 @@ namespace DartsTravel
                 }
                 else if (todoufuken == 46)
                 {
-                    int kagoshimaproperty = r.Next(1,4);
+                    int kagoshimaproperty = r.Next(1, 4);
                     switch (kagoshimaproperty)
                     {
                         case 1:
@@ -423,8 +429,8 @@ namespace DartsTravel
                             y_natural = 130;
                             break;
                         case 2:
-                            x_natural= 30;
-                            y_natural= 130;
+                            x_natural = 30;
+                            y_natural = 130;
                             break;
                         case 3:
                             x_natural = 29;
@@ -441,7 +447,7 @@ namespace DartsTravel
                     y_natural = r.Next(127, 128);
                 }
 
-                
+
 
                 try
                 {
@@ -452,12 +458,15 @@ namespace DartsTravel
                     string x_string = x_natural + "." + x_double;
                     string y_string = y_natural + "." + y_double;
 
-                    x = double.Parse(x_string);
-                    y = double.Parse(y_string);
+
+                        x = 37.109897;
+                        y = 140.152712;
 
 
 
-                    string apiUrl = $"https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?output=json&lat={x_natural}.{x_double}&lon={y_natural}.{y_double}&appid=dj00aiZpPTFXSWpmaHFZZ0YxSSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTI-";
+                        string apiUrl = $"https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?output=json&lat=37.109897&lon=140.152712&appid=dj00aiZpPTFXSWpmaHFZZ0YxSSZzPWNvbnN1bWVyc2VjcmV0Jng9ZTI-";
+              
+
                     // APIからのレスポンスを取得
                     HttpResponseMessage response = await client.GetAsync(apiUrl);
                     response.EnsureSuccessStatusCode();
@@ -492,30 +501,30 @@ namespace DartsTravel
                         if (shiteimode == false)
                         {
                             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
-                        await Task.Delay(300);
+                            await Task.Delay(300);
 
 
-                        locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
-                            (string)decoderData["Feature"][0]["Property"]["AddressElement"][1]["Name"];
+                            locationName = (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"] +
+                                (string)decoderData["Feature"][0]["Property"]["AddressElement"][1]["Name"];
 
-                        locationProperty = (string)decoderData["Feature"][0]["Property"]["AddressElement"][2]["Name"] +
-                            (string)decoderData["Feature"][0]["Property"]["AddressElement"][3]["Name"];
+                            locationProperty = (string)decoderData["Feature"][0]["Property"]["AddressElement"][2]["Name"] +
+                                (string)decoderData["Feature"][0]["Property"]["AddressElement"][3]["Name"];
 
-                        pin = new Pin()
-                        {
-                            
-                            Type = PinType.Place,
-                            Label = locationName,
-                            Address = locationProperty,
-                            Position = new Position(x,y),
-                            Rotation = -33.3f,//ピンを傾けることができる
-                            Tag = "",
-                        };
-                        // MyMap.Pins.Add(pin);//マップへ追加
+                            pin = new Pin()
+                            {
+
+                                Type = PinType.Place,
+                                Label = locationName,
+                                Address = locationProperty,
+                                Position = new Position(x, y),
+                                Rotation = -33.3f,//ピンを傾けることができる
+                                Tag = "",
+                            };
+                            MyMap.Pins.Add(pin);//マップへ追加
 
 
-                       
-                            
+
+
                             for (int i = 0; i < 10; i++)
                             {
                                 mapdarts.TranslationY -= 51;
@@ -524,10 +533,12 @@ namespace DartsTravel
                             }
                             await Task.Delay(200);
                             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(100)));
-                           
+
                         }
+
                         
-                        LabelText.Text = locationName + "\n" + locationProperty + "\n" + "(クリックで観光地検索)";
+                            LabelText.Text = "福島県西白河郡西郷村" + "(クリックで観光地検索)";
+                        
 
                     }
                 }
@@ -550,7 +561,7 @@ namespace DartsTravel
             await Task.Delay(300);
             OnAppearing();
             click++;
-            ClickButton.Text = "再抽選 現在"+click+"回";
+            ClickButton.Text = "再抽選 現在" + click + "回";
             MyMap.Pins.Clear();
             await Task.Delay(80);
             mapdarts.TranslationY += 510;
@@ -559,30 +570,13 @@ namespace DartsTravel
 
         private void Location_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync($"https://www.google.co.jp/search?q={locationName}{locationProperty} 観光地&mobile_link");
+            Launcher.OpenAsync($"https://www.google.co.jp/search?q=福島県西白河郡西郷村 観光地&mobile_link");
+
         }
 
         private void MapAppButton_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&map_action=pano&query={x_natural}.{x_double},{y_natural}.{y_double}&basemap=satellite");
-        }
-
-         private async void lottery_Clicked(object sender, EventArgs e)
-        {
-            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
-            await Task.Delay(300);
-            OnAppearing();
-            click++;
-            ClickButton.Text = "再抽選 現在" + click + "回";
-            MyMap.Pins.Clear();
-            await Task.Delay(80);
-            mapdarts.TranslationY += 510;
-            mapdarts.Scale += 2.6;
-        }
-
-        private void Google_Clicked(object sender, EventArgs e)
-        {
-            Device.OpenUri(new Uri($"https://www.google.com/maps/search/?api=1&query={x_natural}.{x_double},{y_natural}.{y_double}"));
+            Launcher.OpenAsync($"https://www.google.com/maps/search/?api=1&query=37.109897,140.152712");
         }
     }
 }
