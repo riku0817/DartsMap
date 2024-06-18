@@ -26,7 +26,7 @@ namespace DartsTravel
             
                 dartskamae.IsEnabled = false;
             Random r = new Random();
-            int kakuritu = r.Next(0, 200);
+            int kakuritu = r.Next(0,200);
             if (kakuritu == 1)
             {
                 if (flickbool == true)
@@ -39,12 +39,12 @@ namespace DartsTravel
                         dartskamae.Scale = dartskamae.Scale - 0.26;
                         await Task.Delay(30);
                     }
-                    await Navigation.PushAsync(new nishigou());
+                    await Navigation.PushModalAsync(new NavigationPage(new nishigou()));
                     dartskamae.TranslationX -= 100;
                     dartskamae.TranslationY += 400;
                     dartskamae.Scale = dartskamae.Scale + 2.6;
                 }
-                    await Navigation.PushAsync(new NavigationPage(new MainPage()));
+                    
                    dartskamae.TranslationY += 180;
                    dartskamae.Scale = dartskamae.Scale + 2.6;
 
