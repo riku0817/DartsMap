@@ -487,8 +487,24 @@ namespace DartsTravel
                             // 都道府県指定モード処理(処理激重の可能性)
                             if (shitei == "都道府県すべて")
                             {
-                                shiteimode = false;
-                                //すべてなので再抽選なし
+
+                                Type = PinType.Place,
+                                Label = locationName,
+                                Address = locationProperty,
+                                Position = new Position(x, y),
+                                Rotation = -33.3f,//ピンを傾けることができる
+                                Tag = "",
+                            };
+                            //MyMap.Pins.Add(pin);//マップへ追加
+
+
+
+
+                            for (int i = 0; i < 10; i++)
+                            {
+                                mapdarts.TranslationY -= 51;
+                                mapdarts.Scale = mapdarts.Scale - 0.26;
+                                await Task.Delay(30);
                             }
                             else if (shitei != (string)decoderData["Feature"][0]["Property"]["AddressElement"][0]["Name"])
                             {
