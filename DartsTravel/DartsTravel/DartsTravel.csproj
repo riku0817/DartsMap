@@ -15,6 +15,7 @@
     <None Remove="Image\darts.png" />
     <None Remove="Image\dartskamae.jpg" />
     <None Remove="Image\dartskirinuki.png" />
+    <None Remove="Image\haikei.png" />
     <None Remove="Image\kakudarts.png" />
     <None Remove="Image\korogaru.png" />
     <None Remove="Image\korogaru2.png" />
@@ -29,6 +30,7 @@
     <EmbeddedResource Include="Image\darts.png" />
     <EmbeddedResource Include="Image\dartskamae.jpg" />
     <EmbeddedResource Include="Image\dartskirinuki.png" />
+    <EmbeddedResource Include="Image\haikei.png" />
     <EmbeddedResource Include="Image\kakudarts.png" />
     <EmbeddedResource Include="Image\korogaru.png" />
     <EmbeddedResource Include="Image\korogaru2.png" />

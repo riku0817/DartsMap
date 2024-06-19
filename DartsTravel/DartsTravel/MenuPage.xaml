@@ -1,22 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DartsTravel.MenuPage">
-    <ContentPage.Content>
-        <StackLayout>
-
+    <Grid>
+        <ContentView BackgroundColor="DarkBlue"/>
+        <Grid>
+            <Image x:Name="haikei" TranslationY="-60" Scale="0.6"/>
+        </Grid>
             <Label x:Name="DartsStart" Text="ダーツを投げよう！" FontSize="45" VerticalOptions="Start" HorizontalOptions="Center"/>
-            <Label x:Name="tyuuigaki" Text="(ダーツを上にスライド)" FontSize="32" VerticalOptions="Start" HorizontalOptions="Center"/>
+            <Label x:Name="tyuuigaki" Text="(ダーツを上にスライド)" FontSize="32" VerticalOptions="Start" HorizontalOptions="Center" TranslationY="55"/>
+        <StackLayout>
             <Image x:Name="dartskamae"  TranslationX="0" TranslationY="400"  Scale="1.0">
                 <Image.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
                 </Image.GestureRecognizers>
                 </Image>
-            <Image x:Name="kakudarts"  TranslationX="0" TranslationY="290"  Scale="0"/>
-            <Image x:Name="otiru"  TranslationX="100" TranslationY="-200"  Scale="0"/>
-            
-            
-            
-        </StackLayout>
-    </ContentPage.Content>
+            </StackLayout>
+                <Image x:Name="kakudarts"  TranslationX="0" TranslationY="290"  Scale="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+        <Image x:Name="otiru"  TranslationX="100" TranslationY="-200"  Scale="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+    </Grid>
 </ContentPage>

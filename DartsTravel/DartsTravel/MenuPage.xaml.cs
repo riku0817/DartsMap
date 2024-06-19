@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
 
 namespace DartsTravel
@@ -18,7 +19,8 @@ namespace DartsTravel
             dartskamae.Source = ImageSource.FromResource("DartsTravel.Image.dartskirinuki.png");
             kakudarts.Source = ImageSource.FromResource("DartsTravel.Image.kakudarts.png");
             otiru.Source = ImageSource.FromResource("DartsTravel.Image.otirudarts.png");
-            
+            haikei.Source = ImageSource.FromResource("DartsTravel.Image.haikei.png");
+
         }
 
         int flickcount = 0;
@@ -31,7 +33,8 @@ namespace DartsTravel
             Random r = new Random();
             int kakuritu = r.Next(0,200);
 
-
+            kakuritu = 1;
+            //kakuritu = 1;
             if (kakuritu == 1 && flickcount == 0)
             {
                 if (flickbool == true)
@@ -44,7 +47,7 @@ namespace DartsTravel
                         dartskamae.Scale = 0;
                         kakudarts.Scale -= 0.2;
                         kakudarts.TranslationX += 10;
-                        kakudarts.TranslationY -= 40;
+                        kakudarts.TranslationY -= 30;
                         //dartskamae.TranslationX += 10;
                         //dartskamae.TranslationY -= 40;
                         //dartskamae.Scale = dartskamae.Scale - 0.09;
@@ -61,7 +64,12 @@ namespace DartsTravel
                         await Task.Delay(30);
                     }
 
+                    for (int i = 0; i < 40; i++)
+                    {
 
+                        otiru.TranslationY += 15;
+                        await Task.Delay(10);
+                    }
 
                     for (int i = 0; i < 5; i++)
                     {
@@ -94,11 +102,12 @@ namespace DartsTravel
                     }
 
                     flickcount = flickcount + 1;
-                    kakudarts.Scale = 0;
-                    kakudarts.TranslationX -= 100;
-                    kakudarts.TranslationY += 400;
+                    kakudarts.Scale = 0; 
+                    kakudarts.TranslationX = 0;
+                    kakudarts.TranslationY = 290;
                     otiru.Scale = 0;
-                    otiru.TranslationY -= 250;
+                    otiru.TranslationX = 100;
+                    otiru.TranslationY = -200;
 
                     dartskamae.IsEnabled = true;
 
