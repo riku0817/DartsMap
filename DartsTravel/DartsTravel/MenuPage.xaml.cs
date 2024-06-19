@@ -30,14 +30,16 @@ namespace DartsTravel
                 dartskamae.IsEnabled = false;
             Random r = new Random();
             int kakuritu = r.Next(0,200);
-            if (kakuritu == 1 && flickcount ==0)
+
+
+            if (kakuritu == 1 && flickcount == 0)
             {
                 if (flickbool == true)
                 {
                     flickbool = false;
 
                     kakudarts.Scale = 2.5;
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 10; i++) 
                     {
                         dartskamae.Scale = 0;
                         kakudarts.Scale -= 0.2;
@@ -58,14 +60,8 @@ namespace DartsTravel
                         //dartskamae.TranslationY += 20;
                         await Task.Delay(30);
                     }
-                    await Navigation.PushModalAsync(new NavigationPage(new nishigou()));
-                    dartskamae.TranslationX -= 100;
-                    dartskamae.TranslationY += 400;
-                    dartskamae.Scale = dartskamae.Scale + 2.6;
-                }
-                    
-                   dartskamae.TranslationY += 180;
-                   dartskamae.Scale = dartskamae.Scale + 2.6;
+
+
 
                     for (int i = 0; i < 5; i++)
                     {
@@ -98,11 +94,11 @@ namespace DartsTravel
                     }
 
                     flickcount = flickcount + 1;
-                        kakudarts.Scale = 0;
-                        kakudarts.TranslationX -= 100;
-                        kakudarts.TranslationY += 400;
-                        otiru.Scale = 0;
-                        otiru.TranslationY -= 250;
+                    kakudarts.Scale = 0;
+                    kakudarts.TranslationX -= 100;
+                    kakudarts.TranslationY += 400;
+                    otiru.Scale = 0;
+                    otiru.TranslationY -= 250;
 
                     dartskamae.IsEnabled = true;
 
@@ -113,6 +109,7 @@ namespace DartsTravel
                 await Task.Delay(200);
                 dartskamae.IsEnabled = true;
                 flickbool = true;
+
             }
             else
             {
@@ -125,17 +122,17 @@ namespace DartsTravel
                         dartskamae.Scale = dartskamae.Scale - 0.09;
                         await Task.Delay(30);
                     }
-                    await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                    
                     if (flickcount == 1)
                     {
-                        await Navigation.PushModalAsync(new nishigou());
+                        await Navigation.PushModalAsync(new NavigationPage(new nishigou()));
                         dartskamae.TranslationY += 180;
                         dartskamae.Scale = dartskamae.Scale + 0.9;
                         flickcount = 0;
                     }
                     else
                     {
-                        await Navigation.PushModalAsync(new MainPage());
+                        await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
                         dartskamae.TranslationY += 180;
                         dartskamae.Scale = dartskamae.Scale + 0.9;
                     }

@@ -573,7 +573,7 @@ namespace DartsTravel
 
          private async void lottery_Clicked(object sender, EventArgs e)
         {
-            bool isReload = true;
+            isReload = true;
             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x, y), Distance.FromKilometers(1000)));
             await Task.Delay(300);
             OnAppearing();

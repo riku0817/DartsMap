@@ -4,10 +4,10 @@
              x:Class="DartsTravel.MenuPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="dartskamae"  TranslationX="0" TranslationY="400"  Scale="1.0">
+
             <Label x:Name="DartsStart" Text="ダーツを投げよう！" FontSize="45" VerticalOptions="Start" HorizontalOptions="Center"/>
             <Label x:Name="tyuuigaki" Text="(ダーツを上にスライド)" FontSize="32" VerticalOptions="Start" HorizontalOptions="Center"/>
-            <Image x:Name="dartskamae"  TranslationX="0" TranslationY="400"  Scale="2.5">
+            <Image x:Name="dartskamae"  TranslationX="0" TranslationY="400"  Scale="1.0">
                 <Image.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
                 </Image.GestureRecognizers>
