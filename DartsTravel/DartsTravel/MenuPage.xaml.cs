@@ -134,11 +134,11 @@ namespace DartsTravel
 
                     for (int i = 0; i < 60; i++)
                     {
-                        if (tuuti.TranslationY >= -280)
+                        if (tuuti.TranslationY >= 0)
                         {
-                            tuuti.TranslationY = -280;
+                            tuuti.TranslationY = 0;
                         }
-                        else if(tuuti.TranslationY < -280)
+                        else if(tuuti.TranslationY < 0)
                         {
                             tuuti.TranslationY += 15;
                         }
