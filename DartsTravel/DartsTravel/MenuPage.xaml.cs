@@ -19,7 +19,8 @@ namespace DartsTravel
             dartskamae.Source = ImageSource.FromResource("DartsTravel.Image.dartskirinuki.png");
             kakudarts.Source = ImageSource.FromResource("DartsTravel.Image.kakudarts.png");
             otiru.Source = ImageSource.FromResource("DartsTravel.Image.otirudarts.png");
-            haikei.Source = ImageSource.FromResource("DartsTravel.Image.haikei.png");
+            haikei.Source = ImageSource.FromResource("DartsTravel.Image.hatena.png");
+            tuuti.Source = ImageSource.FromResource("DartsTravel.Image.kadomaru.png");
 
         }
 
@@ -31,11 +32,10 @@ namespace DartsTravel
             //kakudarts.Scale = 2.5;
                 dartskamae.IsEnabled = false;
             Random r = new Random();
-            int kakuritu = r.Next(0,200);
+            int kakuritu = r.Next(0,5);
 
-            kakuritu = 1;
             //kakuritu = 1;
-            if (kakuritu == 1 && flickcount == 0)
+            if (kakuritu == 1 && flickcount == 0)   //ダーツが外れる確定演出
             {
                 if (flickbool == true)
                 {
@@ -64,12 +64,12 @@ namespace DartsTravel
                         await Task.Delay(30);
                     }
 
-                    for (int i = 0; i < 40; i++)
-                    {
+                    //for (int i = 0; i < 40; i++)
+                    //{
 
-                        otiru.TranslationY += 15;
-                        await Task.Delay(10);
-                    }
+                        //otiru.TranslationY += 15;
+                        //await Task.Delay(10);
+                    //}
 
                     for (int i = 0; i < 5; i++)
                     {
@@ -102,12 +102,15 @@ namespace DartsTravel
                     }
 
                     flickcount = flickcount + 1;
+                    DartsStart.TranslationY += 400;   //もう一回のラベルをずらす
+                    DartsStart.Text = "もう一回！";
+                    tyuuigaki.TranslationY -= 1000;
                     kakudarts.Scale = 0; 
                     kakudarts.TranslationX = 0;
-                    kakudarts.TranslationY = 290;
+                    kakudarts.TranslationY = 590;
                     otiru.Scale = 0;
                     otiru.TranslationX = 100;
-                    otiru.TranslationY = -200;
+                    otiru.TranslationY = 200;
 
                     dartskamae.IsEnabled = true;
 
@@ -120,29 +123,76 @@ namespace DartsTravel
                 flickbool = true;
 
             }
-            else
+            else if (kakuritu == 2&& flickcount == 0)   //確定通知
             {
                 if (flickbool == true)
                 {
                     flickbool = false;
+
+                    DartsStart.TranslationY -= 200;
+                    tyuuigaki.TranslationY -= 200;
+
+                    for (int i = 0; i < 60; i++)
+                    {
+                        if (tuuti.TranslationY >= -280)
+                        {
+                            tuuti.TranslationY = -280;
+                        }
+                        else if(tuuti.TranslationY < -280)
+                        {
+                            tuuti.TranslationY += 15;
+                        }
+                        dartskamae.TranslationY -= 3.5;
+                        dartskamae.Scale = dartskamae.Scale - 0.015;
+                        await Task.Delay(30);
+                        
+                    }
                     for (int i = 0; i < 10; i++)
                     {
-                        dartskamae.TranslationY -= 18;
+                        tuuti.TranslationY -= 15;
+                        await Task.Delay(30);
+                    }
+                    if (tuuti.TranslationY != -455)
+                    {
+                        tuuti.TranslationY = -455;
+                    }
+                    DartsStart.TranslationY += 200;
+                    tyuuigaki.TranslationY += 200;
+                    await Navigation.PushModalAsync(new NavigationPage(new nishigou()));
+                    dartskamae.TranslationY += 210;
+                    dartskamae.Scale = dartskamae.Scale + 0.9;
+
+                    dartskamae.IsEnabled = true;
+                    flickbool = true;
+
+                }
+            }
+            else     //通常演出
+            {
+                if (flickbool == true)
+                {
+                    flickbool = false;
+                    for (int i = 0; i < 10; i++)   //ダーツが刺さる処理
+                    {
+                        dartskamae.TranslationY -= 20;
                         dartskamae.Scale = dartskamae.Scale - 0.09;
                         await Task.Delay(30);
                     }
                     
-                    if (flickcount == 1)
+                    if (flickcount == 1)     //ダーツが外れる確定演出の時の遷移
                     {
                         await Navigation.PushModalAsync(new NavigationPage(new nishigou()));
-                        dartskamae.TranslationY += 180;
+                        dartskamae.TranslationY += 200;
                         dartskamae.Scale = dartskamae.Scale + 0.9;
                         flickcount = 0;
+                        DartsStart.TranslationY -= 400;
+                        tyuuigaki.TranslationY += 1000;
+                        DartsStart.Text = "ダーツを投げよう！";
                     }
-                    else
+                    else    //通常演出の時の遷移
                     {
                         await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
-                        dartskamae.TranslationY += 180;
+                        dartskamae.TranslationY += 200;
                         dartskamae.Scale = dartskamae.Scale + 0.9;
                     }
                 }

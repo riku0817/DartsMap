@@ -16,13 +16,13 @@
     <None Remove="Image\dartskamae.jpg" />
     <None Remove="Image\dartskirinuki.png" />
     <None Remove="Image\haikei.png" />
+    <None Remove="Image\hatena.png" />
+    <None Remove="Image\kadomaru.png" />
     <None Remove="Image\kakudarts.png" />
-    <None Remove="Image\korogaru.png" />
-    <None Remove="Image\korogaru2.png" />
-    <None Remove="Image\korogaru3.png" />
     <None Remove="Image\otirudarts.png" />
     <None Remove="Image\taoreru.png" />
     <None Remove="Image\toukadarts.png" />
+    <None Remove="Image\tuutigazou.png" />
     <None Remove="Image\スクリーンショット %2883%29.png" />
   </ItemGroup>
 
@@ -31,13 +31,13 @@
     <EmbeddedResource Include="Image\dartskamae.jpg" />
     <EmbeddedResource Include="Image\dartskirinuki.png" />
     <EmbeddedResource Include="Image\haikei.png" />
+    <EmbeddedResource Include="Image\hatena.png" />
+    <EmbeddedResource Include="Image\kadomaru.png" />
     <EmbeddedResource Include="Image\kakudarts.png" />
-    <EmbeddedResource Include="Image\korogaru.png" />
-    <EmbeddedResource Include="Image\korogaru2.png" />
-    <EmbeddedResource Include="Image\korogaru3.png" />
     <EmbeddedResource Include="Image\otirudarts.png" />
     <EmbeddedResource Include="Image\taoreru.png" />
     <EmbeddedResource Include="Image\toukadarts.png" />
+    <EmbeddedResource Include="Image\tuutigazou.png" />
   </ItemGroup>
 
   <ItemGroup>
