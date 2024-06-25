@@ -32,7 +32,7 @@ namespace DartsTravel
             //kakudarts.Scale = 2.5;
                 dartskamae.IsEnabled = false;
             Random r = new Random();
-            int kakuritu = r.Next(0,5);
+            int kakuritu = r.Next(0,400);
 
             //kakuritu = 1;
             if (kakuritu == 1 && flickcount == 0)   //ダーツが外れる確定演出
